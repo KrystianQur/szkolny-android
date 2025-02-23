@@ -237,6 +237,8 @@ class Librus(val app: App, val profile: Profile?, val loginStore: LoginStore, va
                     }
                     ERROR_LIBRUS_API_TEACHER_FREE_DAYS_NOT_PUBLIC -> {
                         d(TAG, "Student not have access to Teacher Free Days resource")
+                        data.setSyncNext(ENDPOINT_LIBRUS_API_TEACHER_FREE_DAYS, 1 * WEEK, FeatureType.AGENDA)
+                        data()
                     }
                     else -> callback.onError(apiError)
                 }
